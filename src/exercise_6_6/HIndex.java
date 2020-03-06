@@ -20,7 +20,30 @@ public class HIndex
 			citations[i] = Integer.parseInt(strs[i]);
 		}
 
-		//bubble sort
+		int number = bubblesort(citations);
+		
+		int hindex = hindex(citations, number); 
+		
+		System.out.println("The h-index is: " + hindex); 
+		
+		scanner.close();
+	}
+
+	public static int hindex(int[] citations, int number)
+	{
+		int hindex = 0; 
+		for (int j = 0; j < number; j++) 
+		{ 
+			if (citations[j] >= j + 1) 
+				hindex = j + 1; 
+			else 
+				break; 
+		}
+		return hindex;
+	}
+
+	public static int bubblesort(int[] citations) 
+	{
 		int number = citations.length;
 		for(int i = 0; i < number - 1; i++)
 		{
@@ -34,19 +57,7 @@ public class HIndex
 				} 
 			} 
 		}
-		
-		//calculate
-		int hindex = 0; 
-		for (int j = 0; j < number; j++) 
-		{ 
-			if (citations[j] >= j + 1) 
-				hindex = j + 1; 
-			else 
-				break; 
-		} 
-		System.out.println("The h-index is: " + hindex); 
-		
-		scanner.close();
+		return number;
 	}
 
 }
