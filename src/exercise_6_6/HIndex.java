@@ -35,6 +35,7 @@ public class HIndex
 			} 
 		}
 		
+		//calculate
 		int hindex = 0; 
 		for (int j = 0; j < number; j++) 
 		{ 
@@ -45,6 +46,7 @@ public class HIndex
 		} 
 		System.out.println("The h-index is: " + hindex); 
 		
+		scanner.close();
 	}
 
 }
